@@ -1,0 +1,38 @@
+<div class="jumbotron text-center">
+	<h1>Grain</h1>
+	<p>{{ tagline }}</p>
+	<table border="1px" width="100%">
+		<tr>
+			<th style="text-align: center;">ID</th>
+			<th style="text-align: center;">Name</th>
+			<th style="text-align: center;">Origin</th>
+			<th style="text-align: center;">Type</th>
+			<th style="text-align: center;">Potential</th>
+			<th style="text-align: center;">Dry Yield</th>
+			<th style="text-align: center;">Coarse/Fine Diff.</th>
+			<th style="text-align: center;">Moisture</th>
+			<th style="text-align: center;">Color</th>
+			<th style="text-align: center;">Mash</th>
+			<th style="text-align: center;">Add After Boil</th>
+			<th style="text-align: center;">Diastatic Power</th>
+			<th style="text-align: center;">Max In Batch</th>
+			<th style="text-align: center;">Protein</th>
+		</tr>
+		<tr ng-repeat="g in grain">
+			<td>{{ g.id }}</td>
+			<td>{{ g.name }}</td>
+			<td>{{ g.origin }}</td>
+			<td>{{ g.type }}</td>
+			<td>{{ g.potential }}</td>
+			<td>{{ g.dry_yield }}</td>
+			<td>{{ g.coarse_fine_diff }}</td>
+			<td>{{ g.moisture }}</td>
+			<td>{{ g.color }}</td>
+			<td>{{ g.mash }}</td>
+			<td>{{ g.add_after_boil }}</td>
+			<td>{{ g.diastatic_power }}</td>
+			<td>{{ g.max_in_batch }}</td>
+			<td>{{ g.protein }}</td>
+		</tr>
+	</table>
+</div>

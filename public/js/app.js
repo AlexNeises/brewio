@@ -1,0 +1,1 @@
+angular.module( 'brewApp', [ 'ngRoute', 'appRoutes', 'MainCtrl', 'GrainCtrl', 'GrainService' ] );

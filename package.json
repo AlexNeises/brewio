@@ -2,11 +2,27 @@
   "name": "brewio",
   "version": "0.0.1",
   "main": "server.js",
+  "scripts": {
+  	"postinstall": "node_modules/.bin/bower install"
+  },
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "method-override": "^2.3.6",
     "mysql": "^2.11.1",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "bower": "^1.7.9",
+    "csswring": "^5.1.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "time-grunt": "^1.4.0"
   }
 }

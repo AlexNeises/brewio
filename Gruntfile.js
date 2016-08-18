@@ -5,20 +5,29 @@ module.exports = function( grunt ) {
 	require( 'time-grunt' )( grunt );
 
 	var jsList = [
-		'public/libs/bootstrap/js/bootstrap.min.js',
 		'public/assets/js/core.js'
+	];
+
+	var jsCtrl = [
+		'public/js/controllers/*.js'
+	];
+
+	var jsServ = [
+		'public/js/services/*.js'
 	];
 
 	grunt.initConfig( {
 		uglify: {
 			options: {
 				beautify: false,
-				mangle: true,
+				mangle: false,
 				compress: true
 			},
 			dist: {
 				files: {
-					'public/assets/js/core.min.js': [ jsList ]
+					'public/assets/js/core.min.js': [ jsList ],
+					'public/assets/js/ctrl.min.js': [ jsCtrl ],
+					'public/assets/js/serv.min.js': [ jsServ ]
 				}
 			}
 		},

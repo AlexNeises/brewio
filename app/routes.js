@@ -395,6 +395,97 @@ module.exports = function( app ) {
 		}
 	} );
 
+
+	app.get( '/api/v1/yeasts', function( req, res ) {
+		pool.getConnection( function( err, connection ) {
+			if ( err ) {
+				connection.release( );
+				console.log( err );
+				res.status( 500 );
+				res.json( {
+					'code': 500,
+					'status': 'Internal Server Error'
+				} );
+			}
+			else {
+				console.log( 'Connected as ID ' + connection.threadId );
+				connection.query( 'SELECT * FROM `yeasts` WHERE 1', function( err, rows ) {
+					connection.release( );
+					if ( err ) {
+						console.log( err );
+						res.status( 500 );
+						res.json( {
+							'code': 500,
+							'status': 'Internal Server Error'
+						} );
+					}
+					else {
+						if ( rows.length > 0 ) {
+							res.status( 200 );
+							res.json( {
+								'code': 200,
+								'status': 'OK',
+								'response': rows
+							} );
+						}
+						else {
+							res.status( 204 );
+							res.json( {
+								'code': 204,
+								'status': 'No Content'
+							} );
+						}
+					}
+				} );
+			}
+		} );
+	} );
+
+	app.get( '/api/v1/yeasts/:id', function( req, res ) {
+		pool.getConnection( function( err, connection ) {
+			if ( err ) {
+				connection.release( );
+				console.log( err );
+				res.status( 500 );
+				res.json( {
+					'code': 500,
+					'status': 'Internal Server Error'
+				} );
+			}
+			else {
+				console.log( 'Connected as ID ' + connection.threadId );
+				connection.query( 'SELECT * FROM `yeasts` WHERE `id` = ' + req.params.id, function( err, rows ) {
+					connection.release( );
+					if ( err ) {
+						console.log( err );
+						res.status( 500 );
+						res.json( {
+							'code': 500,
+							'status': 'Internal Server Error'
+						} );
+					}
+					else {
+						if ( rows.length > 0 ) {
+							res.status( 200 );
+							res.json( {
+								'code': 200,
+								'status': 'OK',
+								'response': rows
+							} );
+						}
+						else {
+							res.status( 204 );
+							res.json( {
+								'code': 204,
+								'status': 'No Content'
+							} );
+						}
+					}
+				} );
+			}
+		} );
+	} );
+
 	app.get( '*', function( req, res ) {
 		res.sendFile( path.resolve( __dirname, '../public/index.html' ) );
 	} );

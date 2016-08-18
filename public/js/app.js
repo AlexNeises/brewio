@@ -1,1 +1,1 @@
-angular.module( 'brewApp', [ 'ngRoute', 'appRoutes', 'MainCtrl', 'GrainCtrl', 'GrainService' ] );
+angular.module( 'brewApp', [ 'ngRoute', 'appRoutes', 'MainCtrl', 'GrainsCtrl', 'GrainsService', 'HopsCtrl', 'HopsService', 'SrmService', 'YeastsCtrl', 'YeastsService' ] );

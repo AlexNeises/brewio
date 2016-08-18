@@ -1,0 +1,32 @@
+<div class="jumbotron text-center">
+	<h1>Yeasts</h1>
+	<p>{{ tagline }}</p>
+	<table border="1px" width="100%">
+		<tr>
+			<th style="text-align: center;">ID</th>
+			<th style="text-align: center;">Name</th>
+			<th style="text-align: center;">Lab</th>
+			<th style="text-align: center;">Strand</th>
+			<th style="text-align: center;">Type</th>
+			<th style="text-align: center;">Form</th>
+			<th style="text-align: center;">Best For</th>
+			<th style="text-align: center;">Attenuation</th>
+			<th style="text-align: center;">Flocculation</th>
+			<th style="text-align: center;">Min. Temp</th>
+			<th style="text-align: center;">Max. Temp</th>
+		</tr>
+		<tr ng-repeat="y in yeasts">
+			<td>{{ y.id }}</td>
+			<td>{{ y.name }}</td>
+			<td>{{ y.lab }}</td>
+			<td>{{ y.strand }}</td>
+			<td>{{ y.type }}</td>
+			<td>{{ y.form }}</td>
+			<td>{{ y.best_for }}</td>
+			<td>{{ y.attenuation }}</td>
+			<td>{{ y.flocculation }}</td>
+			<td>{{ y.min_temp }}</td>
+			<td>{{ y.max_temp }}</td>
+		</tr>
+	</table>
+</div>

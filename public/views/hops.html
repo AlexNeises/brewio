@@ -1,0 +1,26 @@
+<div class="jumbotron text-center">
+	<h1>Hops</h1>
+	<p>{{ tagline }}</p>
+	<table border="1px" width="100%">
+		<tr>
+			<th style="text-align: center;">ID</th>
+			<th style="text-align: center;">Name</th>
+			<th style="text-align: center;">Origin</th>
+			<th style="text-align: center;">Type</th>
+			<th style="text-align: center;">Form</th>
+			<th style="text-align: center;">Alpha</th>
+			<th style="text-align: center;">Beta</th>
+			<th style="text-align: center;">Hop Stability Index</th>
+		</tr>
+		<tr ng-repeat="h in hops">
+			<td>{{ h.id }}</td>
+			<td>{{ h.name }}</td>
+			<td>{{ h.origin }}</td>
+			<td>{{ h.type }}</td>
+			<td>{{ h.form }}</td>
+			<td>{{ h.alpha }}</td>
+			<td>{{ h.beta }}</td>
+			<td>{{ h.hop_stability_index }}</td>
+		</tr>
+	</table>
+</div>

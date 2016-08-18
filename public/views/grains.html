@@ -1,0 +1,138 @@
+<div class="jumbotron text-center">
+	<h1>Grains</h1>
+	<p>{{ tagline }}</p>
+	<form>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-search"></i></div>
+				<input type="text" class="form-control" placeholder="Search Grains" ng-model="searchGrains" />
+			</div>
+		</div>
+	</form>
+	<table class="table table-bordered table-striped" width="100%">
+		<thead>
+			<tr>
+				<td>
+					<a href="#" ng-click="sortType = 'id'; sortReverse = !sortReverse">
+						ID
+						<span ng-show="sortType == 'id' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'id' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+						Name
+						<span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'origin'; sortReverse = !sortReverse">
+						Origin
+						<span ng-show="sortType == 'origin' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'origin' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'type'; sortReverse = !sortReverse">
+						Type
+						<span ng-show="sortType == 'type' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'type' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'potential'; sortReverse = !sortReverse">
+						Potential
+						<span ng-show="sortType == 'potential' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'potential' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'dry_yield'; sortReverse = !sortReverse">
+						Dry Yield
+						<span ng-show="sortType == 'dry_yield' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'dry_yield' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'coarse_fine_diff'; sortReverse = !sortReverse">
+						Coarse/Fine Diff.
+						<span ng-show="sortType == 'coarse_fine_diff' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'coarse_fine_diff' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'moisture'; sortReverse = !sortReverse">
+						Moisture
+						<span ng-show="sortType == 'moisture' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'moisture' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'color'; sortReverse = !sortReverse">
+						Color
+						<span ng-show="sortType == 'color' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'color' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'mash'; sortReverse = !sortReverse">
+						Mash
+						<span ng-show="sortType == 'mash' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'mash' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'add_after_boil'; sortReverse = !sortReverse">
+						Add After Boil
+						<span ng-show="sortType == 'add_after_boil' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'add_after_boil' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'diastatic_power'; sortReverse = !sortReverse">
+						Diastatic Power
+						<span ng-show="sortType == 'diastatic_power' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'diastatic_power' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'max_in_batch'; sortReverse = !sortReverse">
+						Max In Batch
+						<span ng-show="sortType == 'max_in_batch' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'max_in_batch' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+				<td>
+					<a href="#" ng-click="sortType = 'protein'; sortReverse = !sortReverse">
+						Protein
+						<span ng-show="sortType == 'protein' && !sortReverse" class="fa fa-caret-up"></span>
+						<span ng-show="sortType == 'protein' && sortReverse" class="fa fa-caret-down"></span>
+					</a>
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="g in grains | orderBy:sortType:sortReverse | filterGrains:searchGrains">
+				<td>{{ g.id }}</td>
+				<td>{{ g.name }}</td>
+				<td>{{ g.origin }}</td>
+				<td>{{ g.type }}</td>
+				<td>{{ g.potential }}</td>
+				<td>{{ g.dry_yield }}</td>
+				<td>{{ g.coarse_fine_diff }}</td>
+				<td>{{ g.moisture }}</td>
+				<td ng-show="g.color <= 10" style="background-color: {{ g.hex }};">{{ g.color }}</td>
+				<td ng-show="g.color > 10" style="background-color: {{ g.hex }}; color: #FFFFFF;">{{ g.color }}</td>
+				<td>{{ g.mash }}</td>
+				<td>{{ g.add_after_boil }}</td>
+				<td>{{ g.diastatic_power }}</td>
+				<td>{{ g.max_in_batch }}</td>
+				<td>{{ g.protein }}</td>
+			</tr>
+			<tr ng-show="(grains | filterGrains:searchGrains).length == 0">
+				<td colspan="14">No grains found.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
